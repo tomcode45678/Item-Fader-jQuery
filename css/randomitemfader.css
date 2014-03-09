@@ -1,0 +1,22 @@
+/* styles for wrapper/fade area including font and size */
+#faderWrapper{
+    margin: 0 auto;
+    width: 80%; /* change depending on website grid or remove and add class */
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 20% 0; /* use to set the height of the fade in/out area */
+    background: url("../images/earth-bg.jpg") 50% 0 no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+/* all elements within the wrapper/fade area */
+#faderWrapper *{
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    text-shadow: 5px 5px 5px #000; /* can change to any colour e.g. lightgreen, blue #F00 rgb(210,120,40) */
+}
+
+.hidden{
+    display: none;
+}

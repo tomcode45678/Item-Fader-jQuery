@@ -1,0 +1,76 @@
+/* CSS Document */
+body{
+	margin:0;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-color:#FFF;
+}
+#logo{
+	background-color:#050;
+}
+h1{
+	margin:0;
+	padding:10px;
+	font-size:1.8em;
+	font-style:italic;
+	color:#FFF;
+	text-shadow:2px 2px 8px #000;
+}
+h2{
+	font-size:1.2em;
+	color:#333;
+	padding:0 0 0 10%;
+}
+#content{
+	margin:10px 0;
+	width:100%;
+}
+
+/* All un-ordered lists */
+ul{
+	list-style:none;
+}
+/* All list items */
+li{
+	display:inline;
+}
+
+/* MENU */
+
+#menu{
+	border-top:1px solid #C1BEBA;
+	overflow:hidden;
+	border-bottom:1px solid #C1BEBA;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+ul#nav{
+	margin:-5px 0 0 6px;
+	width:100%; /* Force the nav ul to fit the menu div */
+}
+ul#nav li{
+	padding:7px 0 7px 0;
+}
+ul#nav li a{
+	display:inline-block;
+	color:#8E8E8E;
+	min-width:162px;
+	width:51%;
+	font-style:italic;
+	font-weight:bold;
+	padding:30px 90% 26px 10%;
+	margin:0 -2px 0 -6px;
+	font-size:0.75em;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+ul#nav li a:hover{
+	color:#FFF;
+	font-style:normal;
+	text-decoration:none;
+	background-color:#11640B;
+}
