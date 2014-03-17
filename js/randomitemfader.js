@@ -13,20 +13,22 @@
  * @height                 int    | height of fader wrapper
  * @font                   int    | font size of text faded in/out
  * @acceptDomList          string | list of elements that can be added and faded in or out (first element found in list will be used)
- * @acceptWidthHeightList  string | list of elements that can be used to get the width and height first element found in list will be used)
+ * @acceptWidthHeightList  string | list of elements that can be used to get the width and height first element found in list will be used
  */
-var items = [], width, height, fontSize, acceptDomList = 'div,p,h2,h3,h4,img', acceptWidthHeightList = 'div,span,img';
+var fader, items = [], width, height, fontSize, acceptDomList = 'div,p,h2,h3,h4,img', acceptWidthHeightList = 'div,span,img';
 
 /**
  * execute when the domain object model (DOM) has loaded
  */
 $(document).ready(function(){
+    //set fader
+    fader = $("#faderWrapper");
     //get hidden items, add to array
     $('ul#items li').each(function(){ items.push($(this).html()); });
     //set width and height variables
-    width = $("#faderWrapper").width(); height = $("#faderWrapper").height();
+    width = fader.width(); height = fader.height();
     //set height of div stops adding height of new DOM element (stops jumping when item is updated)
-    $("#faderWrapper").css({height:height});
+    fader.css({height:height});
     //set font size based on fade in out area size
     fontSize = (width+height)/20;
     //update items
@@ -40,13 +42,13 @@ $(document).ready(function(){
  */
 function updateItems(){
     //update html of fader and set css of specified html element
-    $("#faderWrapper").html(items[0]).find(acceptDomList).css({display: "none", position: "relative", zIndex: 20, fontSize: fontSize, top: getRandomInt(20, height-$("#faderWrapper").find(acceptWidthHeightList).height()), left: getRandomInt(20, (width/1.5)-$("#faderWrapper").find(acceptWidthHeightList).width())}).fadeIn(500);
+    fader.html(items[0]).find(acceptDomList).css({display: "none", position: "relative", zIndex: 20, fontSize: fontSize, top: getRandomInt(20, height-fader.find(acceptWidthHeightList).height()), left: getRandomInt(20, (width/1.5)-fader.find(acceptWidthHeightList).width())}).fadeIn(500);
     //remove item from array
     items.splice(items[0], 1);
     //add item back to array at the end e.g. before = [1,2,3,4] after = [2,3,4,1]
-    items.push($("#faderWrapper").find(acceptDomList));
+    items.push(fader.find(acceptDomList));
     //find html element to fade out and delay for reading time and then fade out
-    $("#faderWrapper").find(acceptDomList).delay(1000).fadeOut(500);
+    fader.find(acceptDomList).delay(1000).fadeOut(500);
 }
 
 /**
@@ -54,10 +56,10 @@ function updateItems(){
  */
 $(window).on("resize", function(){
     //update window height and width variables used in other functions
-    width = $("#faderWrapper").width();
-    height = $("#faderWrapper").height();
+    width = fader.width();
+    height = fader.height();
     //reset height dependent on new screen size
-    $("#faderWrapper").css({height:height});
+    fader.css({height:height});
     //set font from new screen size
     fontSize = (width+height)/20;
 });
